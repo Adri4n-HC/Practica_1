@@ -1,31 +1,30 @@
-#Alan Sanchez Hernandez 
+## Nombre del archivo: python_no_opt.py
+# Versión: 1.2.0
+# Autor: [Juan González David]
+# Fecha: 14/03/2026
+# Descripción: Optimización profesional usando la librería collections y generadores.
+# Entrada: Lista de números.
+# Salida: Frecuencias, modo y suma de dígitos.
+
+from collections import Counter
+
 numeros = [3, -1, 0, 5, -7, 0, 2, 3, 3, -1, 5, 5, 5]
 
-frecuencias_dict = {}
+# MOD: v1.2.0 — Uso de Counter para conteo de alta velocidad (implementado en C)
+frecuencias_obj = Counter(numeros)
 
-for val in numeros:
-    if val in frecuencias_dict:
-        frecuencias_dict[val] += 1
-    else:
-        frecuencias_dict[val] = 1
+# Convertir a lista de tuplas para cumplir con el formato original del repositorio
+frecuencias = list(frecuencias_obj.items())
 
-frecuencias = list(frecuencias_dict.items())
+# Bloque: Obtención de la moda de forma directa
+# common[0] devuelve (valor, cuenta)
+modo, max_cuenta = frecuencias_obj.most_common(1)[0]
 
-modo = None
-max_cuenta = -1
+# Bloque: Suma de dígitos usando comprensión de listas y generadores
+# MOD: v1.2.0 — Evita el bucle while manual convirtiendo a string y sumando dígitos
+suma_digitos = sum(int(digito) for digito in str(abs(modo)))
 
-for v, c in frecuencias_dict.items():
-    if c > max_cuenta:
-        max_cuenta = c
-        modo = v
-
-x = abs(modo)
-suma_digitos = 0
-
-while x > 0:
-    suma_digitos += (x % 10)
-    x //= 10
-
+# Salidas
 print("Frecuencias:", frecuencias)
 print("Modo:", modo, "con cuenta:", max_cuenta)
 print("Suma de dígitos del modo:", suma_digitos)
