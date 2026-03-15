@@ -1,4 +1,4 @@
-/*Versión: 1.2.2
+/*Versión: 1.2.1
    Autor: Luis Daniel Zavala Cervantes
    Fecha: 14/03/2026
    Descripción breve: Implementación de la Criba de Eratóstenes para eliminar divisiones.
