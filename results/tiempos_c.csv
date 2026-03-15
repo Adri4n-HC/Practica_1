@@ -1,3 +1,4 @@
 Metrica,Valor
-Limite N,100000
-Tiempo de ejecucion (segundos),1.803
+Primos encontrados,78498
+Suma de primos,37550402023
+Tiempo de ejecucion (segundos),0.015000
